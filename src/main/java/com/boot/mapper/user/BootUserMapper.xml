@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.boot.mapper.user.BootUserMapper">
+	<resultMap type="com.boot.domain.user.BootUser" id="BaseResultMap">
+		<id column="id" jdbcType="VARCHAR" property="id" />
+		<result column="login_name" jdbcType="VARCHAR"  property="loginName"/>
+		<result column="pass_word" jdbcType="VARCHAR"  property="passWord" />
+		<result column="user_name" jdbcType="VARCHAR"  property="userName" />
+		<result column="user_tel" jdbcType="VARCHAR"  property="userTel" />
+		<result column="create_time" jdbcType="TIMESTAMP"  property="createTime" />
+		<result column="create_user" jdbcType="VARCHAR"  property="createUser" />
+		<result column="update_time" jdbcType="TIMESTAMP"  property="updateTime" />
+		<result column="update_user" jdbcType="VARCHAR"  property="updateUser" />
+		<result column="head_portrait" jdbcType="VARCHAR"  property="headPortrait" />
+		<result column="is_del" jdbcType="VARCHAR"  property="isDel" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id,login_name,pass_word,user_name,user_tel,create_time,create_user,
+		update_time,update_user,head_portrait,is_del
+	</sql>
+	<insert id="insertSelective" parameterType="com.boot.domain.user.BootUser">
+		insert into boot_user
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+        		id,
+      		</if>
+      		<if test="loginName != null">
+      			login_name,
+      		</if>
+      		<if test="passWord != null">
+      			pass_word,
+      		</if>
+      		<if test="userName != null">
+      			user_name,
+      		</if>
+      		<if test="userTel != null">
+      			user_tel,
+      		</if>
+      		<if test="createTime != null">
+      			create_time,
+      		</if>
+      		<if test="createUser != null">
+      			create_user,
+      		</if>
+      		<if test="updateTime != null">
+      			update_time,
+      		</if>
+      		<if test="updateUser != null">
+      			update_user,
+      		</if>
+      		<if test="headPortrait != null">
+      			head_portrait,
+      		</if>
+      		<if test="isDel != null">
+      			is_del,
+      		</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+        		 #{id,jdbcType=VARCHAR},
+      		</if>
+      		<if test="loginName != null">
+      			 #{loginName,jdbcType=VARCHAR},
+      		</if>
+      		<if test="passWord != null">
+      			 #{passWord,jdbcType=VARCHAR},
+      		</if>
+      		<if test="userName != null">
+      			 #{userName,jdbcType=VARCHAR},
+      		</if>
+      		<if test="userTel != null">
+      			 #{userTel,jdbcType=VARCHAR},
+      		</if>
+      		<if test="createTime != null">
+      			 #{createTime,jdbcType=TIMESTAMP},
+      		</if>
+      		<if test="createUser != null">
+      			 #{createUser,jdbcType=VARCHAR},
+      		</if>
+      		<if test="updateTime != null">
+      			 #{updateTime,jdbcType=TIMESTAMP},
+      		</if>
+      		<if test="updateUser != null">
+      			 #{updateUser,jdbcType=VARCHAR},
+      		</if>	
+      		<if test="headPortrait != null">
+      			 #{headPortrait,jdbcType=VARCHAR},
+      		</if>
+      		<if test="isDel != null">
+      			 #{isDel,jdbcType=VARCHAR},
+      		</if>
+		</trim>
+	</insert>
+</mapper>
