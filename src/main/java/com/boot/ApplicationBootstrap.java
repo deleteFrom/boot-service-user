@@ -6,7 +6,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.context.annotation.ImportResource;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.boot"})
 @ImportResource("classpath:/META-INF/spring/applicationContext.xml")
 public class ApplicationBootstrap extends SpringBootServletInitializer {
 

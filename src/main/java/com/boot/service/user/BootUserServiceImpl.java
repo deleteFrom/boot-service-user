@@ -1,19 +1,22 @@
 package com.boot.service.user;
 
-import javax.annotation.Resource;
+import javax.ws.rs.Path;
 
-import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
 
+import com.alibaba.dubbo.config.annotation.Service;
 import com.boot.domain.user.BootUser;
 import com.boot.mapper.user.BootUserMapper;
-@Service("bootUserService")
+@Service
+@Path("bootUserService")
 public class BootUserServiceImpl implements BootUserService {
-	@Resource
+	@Autowired
 	private BootUserMapper bootUserMapper;
 	
 	@Override
 	public String insertBootUser(BootUser bootUser) {
-		return null;
+		bootUserMapper.insertSelective(bootUser);
+		return "1";
 	}
 
 }
